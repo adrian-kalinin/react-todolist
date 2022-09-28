@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import TodoTable from './TodoTable';
+import AddTodo from './AddTodo';
 
 function App() {
   const [newTodo, setNewTodo] = useState({ description: '', date: '' });
@@ -18,54 +20,10 @@ function App() {
   };
 
   return (
-    <div className="container mt-3">
-      <form className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          onChange={(event) => setNewTodo({ ...newTodo, description: event.target.value })}
-          value={newTodo.description}
-          placeholder="Description"
-        />
-        <input
-          type="text"
-          className="form-control"
-          onChange={(event) => setNewTodo({ ...newTodo, date: event.target.value })}
-          value={newTodo.date}
-          placeholder="Date"
-        />
-        <button type="submit" className="btn btn-outline-secondary" onClick={addTodo}>
-          Add
-        </button>
-      </form>
-      <table className="table">
-        <thead className="table-light">
-          <tr>
-            <th>Description</th>
-            <th>Date</th>
-            <th>{' '}</th>
-          </tr>
-        </thead>
-        <tbody>
-          { todos.map((todo, index) => (
-            // eslint-disable-next-line react/jsx-key,react/no-array-index-key
-            <tr key={index}>
-              <td>{todo.description}</td>
-              <td>{todo.date}</td>
-              <td className="text-end">
-                <button
-                  type="button"
-                  className="btn btn-outline-danger"
-                  onClick={(event) => deleteTodo(event, index)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <main className="container mt-3">
+      <AddTodo newTodo={newTodo} setNewTodo={setNewTodo} addTodo={addTodo} />
+      <TodoTable todos={todos} deleteTodo={deleteTodo} />
+    </main>
   );
 }
 
