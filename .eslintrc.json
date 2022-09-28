@@ -18,6 +18,7 @@
     "react"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-max-props-per-line": [2, { "maximum": { "single": 3, "multi": 1}}]
   }
 }
