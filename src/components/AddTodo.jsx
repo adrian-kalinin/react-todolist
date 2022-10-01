@@ -1,5 +1,17 @@
+import { useState } from 'react';
+
 function AddTodo(props) {
-  const { newTodo, setNewTodo, addTodo } = props;
+  const { todos, setTodos } = props;
+  const [newTodo, setNewTodo] = useState({ description: '', date: '', priority: '' });
+
+  const addTodo = (event) => {
+    event.preventDefault();
+
+    if (newTodo.description && newTodo.date) {
+      setTodos([...todos, newTodo]);
+      setNewTodo({ description: '', date: '', priority: '' });
+    }
+  };
 
   return (
     <form className="input-group mb-3">
