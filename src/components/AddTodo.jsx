@@ -17,6 +17,13 @@ function AddTodo(props) {
         value={newTodo.date}
         placeholder="Date"
       />
+      <input
+        type="text"
+        className="form-control"
+        onChange={(event) => setNewTodo({ ...newTodo, priority: event.target.value })}
+        value={newTodo.priority}
+        placeholder="Priority"
+      />
       <button type="submit" className="btn btn-outline-secondary" onClick={addTodo}>
         Add
       </button>

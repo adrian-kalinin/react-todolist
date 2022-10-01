@@ -3,7 +3,7 @@ import TodoTable from './TodoTable';
 import AddTodo from './AddTodo';
 
 function App() {
-  const [newTodo, setNewTodo] = useState({ description: '', date: '' });
+  const [newTodo, setNewTodo] = useState({ description: '', date: '', priority: '' });
   const [todos, setTodos] = useState([]);
 
   const addTodo = (event) => {
@@ -11,7 +11,7 @@ function App() {
 
     if (newTodo.description && newTodo.date) {
       setTodos([...todos, newTodo]);
-      setNewTodo({ description: '', date: '' });
+      setNewTodo({ description: '', date: '', priority: '' });
     }
   };
 

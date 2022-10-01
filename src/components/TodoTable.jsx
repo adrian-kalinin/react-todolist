@@ -7,6 +7,7 @@ function TodoTable(props) {
         <tr>
           <th>Description</th>
           <th>Date</th>
+          <th>Priority</th>
           <th>{' '}</th>
         </tr>
       </thead>
@@ -16,6 +17,7 @@ function TodoTable(props) {
           <tr key={index}>
             <td>{todo.description}</td>
             <td>{todo.date}</td>
+            <td>{todo.priority}</td>
             <td className="text-end">
               <button
                 type="button"
