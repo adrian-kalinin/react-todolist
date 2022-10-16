@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { Container } from '@mui/material';
 import Navbar from './Navbar';
 
 function BaseLayout() {
@@ -7,8 +8,10 @@ function BaseLayout() {
       <header>
         <Navbar />
       </header>
-      <main className="container mt-3">
-        <Outlet />
+      <main>
+        <Container>
+          <Outlet />
+        </Container>
       </main>
     </>
   );
