@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function AddTodo(props) {
+function TodosCreate(props) {
   const { todos, setTodos } = props;
   const [newTodo, setNewTodo] = useState({ description: '', date: '', priority: '' });
 
@@ -43,4 +43,4 @@ function AddTodo(props) {
   );
 }
 
-export default AddTodo;
+export default TodosCreate;

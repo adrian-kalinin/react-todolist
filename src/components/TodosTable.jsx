@@ -16,7 +16,7 @@ function getPriorityStyles(params) {
   }
 }
 
-function TodoTable(props) {
+function TodosTable(props) {
   const { todos, setTodos } = props;
   const gridRef = useRef();
 
@@ -61,4 +61,4 @@ function TodoTable(props) {
   );
 }
 
-export default TodoTable;
+export default TodosTable;
