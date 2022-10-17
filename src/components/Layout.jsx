@@ -1,20 +1,17 @@
 import { Outlet } from 'react-router-dom';
-import { Container } from '@mui/material';
 import Navbar from './Navbar';
 
-function BaseLayout() {
+function Layout() {
   return (
     <>
       <header>
         <Navbar />
       </header>
       <main>
-        <Container>
-          <Outlet />
-        </Container>
+        <Outlet />
       </main>
     </>
   );
 }
 
-export default BaseLayout;
+export default Layout;

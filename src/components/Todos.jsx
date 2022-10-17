@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Button, Stack, TextField } from '@mui/material';
+import { Button, Container, Stack, TextField } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
@@ -51,7 +51,7 @@ function Todos() {
   };
 
   return (
-    <>
+    <Container>
       <Stack
         direction="row"
         justifyContent="center"
@@ -95,7 +95,7 @@ function Todos() {
           domLayout="autoHeight"
         />
       </div>
-    </>
+    </Container>
   );
 }
 
