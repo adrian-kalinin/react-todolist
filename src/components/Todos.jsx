@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Button, Container, Stack, TextField } from '@mui/material';
+import { Box, Button, Container, Stack, TextField } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
@@ -57,6 +57,7 @@ function Todos() {
         justifyContent="center"
         alignItems="center"
         spacing={2}
+        pt={2}
       >
         <TextField
           label="Description"
@@ -83,7 +84,7 @@ function Todos() {
           Delete
         </Button>
       </Stack>
-      <div className="ag-theme-material">
+      <Box pt={2} className="ag-theme-material">
         <AgGridReact
           ref={gridRef}
           rowSelection="single"
@@ -94,7 +95,7 @@ function Todos() {
           defaultColDef={{ flex: 1 }}
           domLayout="autoHeight"
         />
-      </div>
+      </Box>
     </Container>
   );
 }
