@@ -1,5 +1,14 @@
 import { useRef, useState } from 'react';
-import { Box, Button, Container, Stack, TextField } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  FormControl, InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+} from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
@@ -73,12 +82,20 @@ function Todos() {
           // eslint-disable-next-line react/jsx-props-no-spreading
           renderInput={(params) => <TextField {...params} />}
         />
-        <TextField
-          label="Priority"
-          variant="outlined"
-          value={newTodo.priority}
-          onChange={(event) => setNewTodo({ ...newTodo, priority: event.target.value })}
-        />
+        <FormControl variant="outlined" sx={{ minWidth: 120 }}>
+          <InputLabel id="priority">Priority</InputLabel>
+          <Select
+            labelId="priority"
+            id="priority"
+            value={newTodo.priority}
+            onChange={(event) => setNewTodo({ ...newTodo, priority: event.target.value })}
+            autoWidth
+          >
+            <MenuItem value="High">High</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Low">Low</MenuItem>
+          </Select>
+        </FormControl>
         <Button onClick={addTodo} variant="contained">
           Add
         </Button>
