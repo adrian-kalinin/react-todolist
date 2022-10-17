@@ -2,9 +2,8 @@ import { useRef, useState } from 'react';
 import { Box, Button, Container, Stack, TextField } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-material.css';
-import 'ag-grid-community/dist/styles/ag-theme-material.min.css';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-material.min.css';
 import dayjs from 'dayjs';
 
 function getPriorityStyles(params) {
