@@ -10,6 +10,7 @@ import {
   TextField,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.min.css';
@@ -99,7 +100,12 @@ function Todos() {
         <Button onClick={addTodo} variant="contained">
           Add
         </Button>
-        <Button onClick={deleteTodo} variant="contained" color="error">
+        <Button
+          onClick={deleteTodo}
+          variant="contained"
+          endIcon={<DeleteIcon />}
+          color="error"
+        >
           Delete
         </Button>
       </Stack>
