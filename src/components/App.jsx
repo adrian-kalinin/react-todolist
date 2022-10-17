@@ -8,7 +8,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Todos />} />
       </Route>
-      <Route path="*" element={<h1 className="text-center mt-5">Oops! Page not found...</h1>} />
+      <Route path="*" element={<h1>Oops! Page not found...</h1>} />
     </Routes>
   );
 }
