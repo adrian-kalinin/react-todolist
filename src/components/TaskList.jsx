@@ -29,9 +29,9 @@ function getPriorityStyles(params) {
   }
 }
 
-function Todos() {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState({ description: '', date: null, priority: '' });
+function TaskList() {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState({ description: '', date: null, priority: '' });
   const gridRef = useRef();
 
   const columns = [
@@ -40,21 +40,21 @@ function Todos() {
     { field: 'priority', sortable: true, filter: true, cellStyle: getPriorityStyles },
   ];
 
-  const addTodo = (event) => {
+  const addTask = (event) => {
     event.preventDefault();
 
-    if (newTodo.description && newTodo.date && newTodo.priority) {
-      setTodos([...todos, newTodo]);
-      setNewTodo({ description: '', date: null, priority: '' });
+    if (newTask.description && newTask.date && newTask.priority) {
+      setTasks([...tasks, newTask]);
+      setNewTask({ description: '', date: null, priority: '' });
     }
   };
 
-  const deleteTodo = () => {
+  const deleteTask = () => {
     const selectedNodes = gridRef.current?.getSelectedNodes();
 
     if (selectedNodes?.length) {
       const selectedIndexes = selectedNodes.map((node) => node.childIndex);
-      setTodos(todos.filter((_, index) => !selectedIndexes.includes(index)));
+      setTasks(tasks.filter((_, index) => !selectedIndexes.includes(index)));
     } else {
       // eslint-disable-next-line no-alert
       alert('Select rows to delete');
@@ -73,13 +73,13 @@ function Todos() {
         <TextField
           label="Description"
           variant="outlined"
-          value={newTodo.description}
-          onChange={(event) => setNewTodo({ ...newTodo, description: event.target.value })}
+          value={newTask.description}
+          onChange={(event) => setNewTask({ ...newTask, description: event.target.value })}
         />
         <DatePicker
           label="Date"
-          value={newTodo.date}
-          onChange={(newValue) => setNewTodo({ ...newTodo, date: newValue })}
+          value={newTask.date}
+          onChange={(newValue) => setNewTask({ ...newTask, date: newValue })}
           // eslint-disable-next-line react/jsx-props-no-spreading
           renderInput={(params) => <TextField {...params} />}
         />
@@ -88,8 +88,8 @@ function Todos() {
           <Select
             labelId="priority"
             id="priority"
-            value={newTodo.priority}
-            onChange={(event) => setNewTodo({ ...newTodo, priority: event.target.value })}
+            value={newTask.priority}
+            onChange={(event) => setNewTask({ ...newTask, priority: event.target.value })}
             autoWidth
           >
             <MenuItem value="High">High</MenuItem>
@@ -97,11 +97,11 @@ function Todos() {
             <MenuItem value="Low">Low</MenuItem>
           </Select>
         </FormControl>
-        <Button onClick={addTodo} variant="contained">
+        <Button onClick={addTask} variant="contained">
           Add
         </Button>
         <Button
-          onClick={deleteTodo}
+          onClick={deleteTask}
           variant="contained"
           endIcon={<DeleteIcon />}
           color="error"
@@ -115,7 +115,7 @@ function Todos() {
           rowSelection="single"
           onGridReady={(params) => { gridRef.current = params?.api; }}
           columnDefs={columns}
-          rowData={todos}
+          rowData={tasks}
           animateRows
           defaultColDef={{ flex: 1 }}
           domLayout="autoHeight"
@@ -125,4 +125,4 @@ function Todos() {
   );
 }
 
-export default Todos;
+export default TaskList;

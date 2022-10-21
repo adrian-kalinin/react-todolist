@@ -1,8 +1,8 @@
-import Todos from './Todos';
+import TaskList from './TaskList';
 
 function App() {
   return (
-    <Todos />
+    <TaskList />
   );
 }
 
